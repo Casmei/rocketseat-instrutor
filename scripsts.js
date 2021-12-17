@@ -1,14 +1,22 @@
 const modalOverlay = document.querySelector ('.modal-overlay')
-const cards = document.querySelectorAll('.card__image-container > img')
+const cards = document.querySelectorAll('.card__image-container')
+
+console.log(cards)
 
 for (let card of cards) {
   card.addEventListener('click', function(){
+    const videoId = card.getAttribute("id");
+    console.log(videoId)
     modalOverlay.classList.add('active')
+    modalOverlay.querySelector("iframe").src = `https://www.youtube.com/embed/${videoId}`
+
+
   })
 }
 
 let closeModal = document.querySelector('.close-modal')
-
 closeModal.addEventListener('click', function(){
   modalOverlay.classList.remove('active')
 })
+
+
