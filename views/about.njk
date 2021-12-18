@@ -1,6 +1,6 @@
 {% extends "layout.njk" %}
 {% block head %}
-  <title>Sobre - Tiago de Castro</title>
+  <title>Sobre - {{ about.name }}</title>
 {% endblock %}
 
 {% block conteudo %}
@@ -8,27 +8,22 @@
 <!-- =-=-=-=-=-= conteudo =-=-=-=-=-= -->
   <div id="wrapper">
     <img
-      src="https://avatars.githubusercontent.com/u/68354933?v=4"
-      alt="Tiago de Castro"
+      src="{{ about.avatar_url }}"
+      alt="Imagem de {{ about.name }}"
     />
-    <h1>Tiago de Castro</h1>
-    <h2>Desenvolvedor - Estudante</h2>
+    <h1>{{ about.name }}</h1>
+    <h2>{{ about.role }}</h2>
     <p>
-      Tenho 18 anos, atualmente estou no segundo período de
-      <a href="">Análise e Desenvolvimento de Sistemas</a> . Estou sempre em
-      busca de experiências que me possibilitem expandir minhas áreas de
-      conhecimento.
+      {{ about.description }}
     </p>
   </div>
 
 <!-- =-=-=-=-=-= footer =-=-=-=-=-= -->
 
   <div class="links footer">
-
-    <a href="https://github.com/Casmei" target="blank">Github</a>
-    <a href="https://www.linkedin.com/in/tiago-de-castro-lima-3814911b9/" target="blank">Linkedin</a>
-    <a href="https://www.instagram.com/tiago.cali/" target="blank">Instagram</a>
-
+  {% for link in about.links %}
+    <a href="{{ link.url }}" target="blank">{{ link.name }}</a>
+  {% endfor %}
   </div>
 
 {% endblock %}
