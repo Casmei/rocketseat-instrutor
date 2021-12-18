@@ -2,12 +2,13 @@ const express = require("express")
 const nunjucks = require("nunjucks")
 
 const server = express()
+const videos = require("./data")
 
 // Setando o style css
 server.use(express.static('public'))
 
 //Configurando a template engine
-server.set("view engine", "html")
+server.set("view engine", "njk")
 
 nunjucks.configure("views", {
   express: server
@@ -22,7 +23,7 @@ server.get('/', (req, res) => {
 
 // ### Rota Portfolio
 server.get('/portfolio', (req, res) => {
-  return res.render("portfolio")
+  return res.render("portfolio", {items: videos})
 })
 
 //# Inicinado o servidor
