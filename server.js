@@ -1,9 +1,28 @@
 const express = require("express")
+const nunjucks = require("nunjucks")
+
 const server = express()
 
+// Setando o style css
+server.use(express.static('public'))
+
+//Configurando a template engine
+server.set("view engine", "html")
+
+nunjucks.configure("views", {
+  express: server
+})
+
 //Servidor, pegue essa barra e execute alguma coisa
+// ### Rota Raiz
 server.get('/', (req, res) => {
-  return res.send('hi')
+  // Vai retornar a renderização da view
+  return res.render("about")
+})
+
+// ### Rota Portfolio
+server.get('/portfolio', (req, res) => {
+  return res.render("portfolio")
 })
 
 //# Inicinado o servidor
