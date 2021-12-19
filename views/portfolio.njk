@@ -23,8 +23,11 @@ rel="stylesheet"/>
         <!-- 1 -->
         <div class="card">
 
-          <div class="card__image-container" id="{{ item.id }}">
+          <div class="card__image-container {{ 'featured-wrapper' if item.featured }} " id="{{ item.id }}">
             <img src="https://img.youtube.com/vi/{{ item.id }}/maxresdefault.jpg" alt="Imagem de {{ item.title }}"/>
+            {% if item.featured %}
+              <div class="featured">Featured</div>
+            {% endif %}
           </div>
 
           <div class="card__content">
@@ -40,22 +43,7 @@ rel="stylesheet"/>
       {% endfor %}
 
     </section>
-    <!-- -------------------- MODAL ----------------------- -->
-    <!-- Fundo escuro -->
-    <div class="modal-overlay">
-      <!-- Modal branco -->
-      <div class="modal">
-        <!-- Fechar modal -->
-        <a class="close-modal">
-          <i class="material-icons">close</i>
-        </a>
-        <!-- Vídeo do modal -->
-        <div class="modal-content">
-          <iframe src="" frameborder="0"></iframe>
-        </div>
-      </div>
-    </div>
 
-    <script src="scripts.js"></script>
+    <script src="/scripts.js"></script>
 
     {% endblock %}

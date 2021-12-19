@@ -13,7 +13,8 @@ server.set("view engine", "njk")
 nunjucks.configure("views", {
   express: server,
   // IMprimir o HTML
-  autoescape: false
+  autoescape: false,
+  noCache: true
 })
 
 //Servidor, pegue essa barra e execute alguma coisa
@@ -32,6 +33,22 @@ server.get('/', (req, res) => {
   }
   // Vai retornar a renderização da view
   return res.render("about", { about })
+})
+
+// ### Rota vídeo
+server.get ("/video", (req, res) => {
+  const id = req.query.id
+  // Ele vai rodar todos os elementos do array video e aplicar a função para cada
+  const video = videos.find((video) => {
+    return video.id == id
+  })
+
+  if (!video) {
+    return res.send("video not found")
+  }
+
+  return res.render("video", { item: video })
+
 })
 
 // ### Rota Portfolio
