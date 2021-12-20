@@ -32,7 +32,7 @@ server.get('/', (req, res) => {
     ]
   }
   // Vai retornar a renderização da view
-  return res.render("about", { about })
+  return res.render("index", { about })
 })
 
 // ### Rota vídeo
