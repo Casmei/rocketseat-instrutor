@@ -51,7 +51,7 @@ header {
   width: 300px;
 }
 
-#wrapper > h1 {
+h1 {
   font-size: 42px;
   line-height: 52px;
   font-weight: bold;
@@ -79,6 +79,51 @@ header {
   border-bottom: 1px solid var(--color-green);
 }
 
+@media (max-width: 600px){
+  
+  /* IMAGEM */
+  #wrapper > img {
+    border-radius: 50%;
+    border: 2px solid var(--color-green);
+    margin-bottom: 32px;
+    width: 150px;
+  }
+
+  /* Meu nome */
+  .about > h1 {
+    font-size: 32px;
+    line-height: 42px;
+    font-weight: bold;
+  }
+
+  /* Subtitle */
+  #wrapper > h2 {
+    font-size: 24px;
+    line-height: 28px;
+    font-weight: normal;
+    margin-left: 8px;
+  }
+
+  /* Sobre eu */
+  #wrapper > p {
+    max-width: 400px;
+    margin: 24px auto;
+    font-size: 18px;
+    line-height: 28px;
+  }
+
+  .footer {
+    margin-bottom: 30px;
+  }
+
+  header {
+    padding: 18px;
+    border-bottom: 1px solid #333;
+    background: rgba(0, 0, 0, 0.1);
+  }
+
+}
+
 /* CARDS */
 
 .cards {
@@ -92,6 +137,7 @@ header {
 .card {
   background-color: var(--color-rocket);
   border-radius: 4px;
+  display: grid;
 }
 
 .card__image-container > img {
@@ -108,6 +154,7 @@ header {
 .card__info {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  align-items: center;
 }
 
 .card__price {
@@ -118,45 +165,72 @@ header {
   text-align: center;
 }
 
-/*  MODAL */
-.modal-overlay {
-  background-color: rgba(0, 0, 0, 0.7);
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  top: 0;
-  opacity: 0;
-  visibility: hidden;
+@media (max-width: 600px){
+
+  .video > h1 {
+    font-size: 24px;
+    line-height: 32px;
+
+    
+  }
+
+  .cards {
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .card {
+    background-color: var(--color-rocket);
+    border-radius: 4px;
+    display: grid;
+    margin-bottom: 20px;
+    margin-left: 25px;
+    margin-right: 25px;
+  }
+
 }
 
-.modal {
-  background-color: rgb(255, 255, 255);
-  width: 90%;
-  height: 90%;
-  margin: 5vh auto;
+/* FEATURED */
+
+.featured-wrapper.card__image-container {
   position: relative;
 }
 
-.modal > .close-modal {
-  color: black;
+.featured {
+  background-color: #f7d05f;
+  color: #111;
+  font-weight: 600;
+  padding: 4px 8px;
+  border-radius: 16px;
   position: absolute;
-  right: 8px;
-  top: 8px;
-  cursor: pointer;
+  right: 5px;
+  top: -10px;
 }
 
-/*  MODAL ATIVO */
+/* VIDEO PAGE */
 
-.modal-overlay.active{
-  opacity: 1;
-  visibility: visible;
-
+.video {
+  margin: 0 auto;
+  max-width: 800px;
 }
 
-iframe {
+.video .card {
+  cursor: initial;
+}
+
+.card__video-container {
+  position: relative;
   width: 100%;
-  height: 90%;
-  top: 5%;
+  padding-top: 62.5%;
+}
+
+.card__video-container  iframe{
+  width: 100%;
+  height: 100%;
   position: absolute;
+  top: 0;
 
 }
+
